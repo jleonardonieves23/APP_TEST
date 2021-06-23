@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="loginApp" ng-controller="mainCtrl">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+
+	<script type="text/javascript" src="js/lib/angular.min-v1.8.2.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/service/login_server.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="container-login">
+			<form name="forma" ng-submit="ingresar(datos)">
+			  <div class="imgcontainer">
+			    <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+			  </div>
+
+			  <div class="container" >
+			    <label for="uname"><b>Email</b></label>
+			    <input 
+			    	type="text" 
+			    	placeholder="Email" 
+			    	name="email" 
+			    	required="required"
+			    	ng-model="datos.email">
+
+			    <label for="psw"><b>Clave</b></label>
+			    <input 
+			    	type="password" 
+			    	placeholder="Clave" 
+			    	name="clave" 
+			    	required="required"
+			    	ng-model="datos.clave">
+
+			    <button type="submit" name="ingresar" 
+			    	ng-disabled="forma.$invalid || cargando">Ingresar</button>
+			  </div>
+			  <br>
+			  <div class="row" ng-show="invalido">
+			  	<div class="col-md-12">
+			  		<div class="alert alert-danger" role="alert">
+			  			<strong>Verificar</strong>			  			
+			  			{{ mensaje }}
+			  		</div>
+			  	</div>
+			  </div>
+			</form>
+		</div>				
+	</div>
+</body>
+</html>
